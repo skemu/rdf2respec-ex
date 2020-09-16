@@ -1,0 +1,33 @@
+sources:
+  inputLocation: "/c/Dev/skemu/rdf2respec-ex/input"
+  ignorePathsWith:
+    - "old"
+  outputLocation: "/c/Dev/skemu/rdf2respec-ex/output"
+  reSpecMapping:
+    type: hierarchical
+    prefixes:
+      rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+      skos: "http://www.w3.org/2004/02/skos/core#"
+      skosthes: "http://purl.org/iso25964/skos-thes#"
+      dct: "http://purl.org/dc/terms/"
+      sor_begrip: "http://definities.geostandaarden.nl/imsor/id/begrip/"
+      edit: "http://definities.geostandaarden.nl/def/editorial#"
+    hierarchicalRelation: 
+      direction: upward
+      predicates:
+        - skos:broader
+        - skosthes:broaderGeneric
+        - skosthes:broaderPartitive
+        - skosthes:broaderInstantial
+    sectionTitlePredicate: skos:prefLabel
+    attributeMapping:
+      naam: skos:prefLabel
+      alternatieve naam: skos:altLabel
+      definitie: skos:definition
+      breder concept: skos:broader
+      toelichting en voorbeelden: skos:scopeNote
+      verwant concept: skos:related
+      herkomst: dct:source
+    issueMapping:
+      issuePredicate: edit:issue
+      issueIdPredicate: dct:identifier
